@@ -1,0 +1,82 @@
+#!/usr/bin/env python
+# coding: utf-8
+'''
+@File   :boot.py
+@Author :youxinweizhi
+@Date   :2020/7/16
+@Github :https://github.com/youxinweizhi
+'''
+
+import machine
+from machine import Timer
+t1=Timer(2)
+
+def timer_wifi(f):
+    if wifi.isconnected():
+        pass
+    else:
+        do_connect()
+
+def is_legal_wifi(essid, password):
+    '''
+    判断WIFI密码是否合法
+    '''
+    if len(essid) == 0 or len(password) == 0:
+        return False
+    return True
+
+def do_connect():
+    import json
+    import network
+    global wifi
+    # 尝试读取配置文件wifi_confi.json,这里我们以json的方式来存储WIFI配置
+    # wifi_config.json在根目录下
+    # 若不是初次运行,则将文件中的内容读取并加载到字典变量 config
+    try:
+        with open('wifi_config.json','r') as f:
+            config = json.loads(f.read())
+    # 若初次运行,则将进入excpet,执行配置文件的创建
+    except:
+        essid = ''
+        password = ''
+
+        while True:
+            essid = input('wifi name:') # 输入essid
+            password = input('wifi passwrod:') # 输入password
+            if is_legal_wifi(essid, password):
+                config = dict(essid=essid, password=password) # 创建字典
+                with open('wifi_config.json','w') as f:
+                    f.write(json.dumps(config)) # 将字典序列化为json字符串,存入wifi_config.json
+                break
+            else:
+                print('ERROR, Please Input Right WIFI')
+    
+    #以下为正常的WIFI连接流程
+    wifi = network.WLAN(network.STA_IF)
+    if not wifi.isconnected():
+        print('connecting to network...')
+        wifi.active(True)
+        wifi.connect(config['essid'], config['password'])
+        #等待链接
+        import utime
+        for i in range(200):
+            print('第{}次尝试连接WIFI热点'.format(i))
+            if wifi.isconnected():
+                break
+            utime.sleep_ms(1000) #一般睡个5-10秒,应该绰绰有余
+        #判断是否连接
+        if not wifi.isconnected():
+          wifi.active(False)
+          machine.reset()
+        else:
+            print('network config:', wifi.ifconfig())
+            t1.init(period=3000, mode=Timer.PERIODIC,callback=timer_wifi)
+            import main
+    else:
+        print('network config:', wifi.ifconfig())
+if __name__ == '__main__':
+    do_connect()
+
+
+
+

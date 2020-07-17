@@ -1,10 +1,78 @@
-# skill_server_for_esp32
-å¤©çŒ«è‡ªå®šä¹‰æŠ€èƒ½æœåŠ¡ç«¯ç”¨äºŽesp32å¼€å‘æ¿ï¼Œå¯ä»¥è‡ªå®šä¹‰å–Šè¯å†…å®¹æŽ§åˆ¶esp32å¼€å‘æ¿ï¼Œå¦‚ï¼šå¤©çŒ«ç²¾çµ æ‰“å¼€pcæœº
-
-ç»™å¤§å®¶åˆ†äº«ä¸€ä¸ªå¤©çŒ«ç²¾çµæŽ§åˆ¶esp32çš„æ–¹æ³•ï¼Œé›¶æˆæœ¬ï¼Œå‘Šåˆ«å¤©çŒ«ç²¾çµä¼ ç»Ÿäº‘äº‘æŽ¥å…¥çš„æ–¹å¼ã€‚
-è€Œä¸”æ˜¯ å–Šè¯å†…å®¹ è‡ªå·±éšä¾¿å–Šçš„é‚£ç§ 
-æ­¤æ–¹æ³•å……æ»¡æ— é™çš„æƒ³æƒ³
-è®©ä½ è‡ªç”±çš„é£žç¿”
-ä»Žæ­¤å‘Šåˆ« åªèƒ½å¼€ä¸ªç¯ å¼€ä¸ªæ’åº§çš„çª˜æ€
-ç”šè‡³å¯ä»¥è®©å¤©çŒ«ç²¾çµå¸®ä½ æ‰“æ¸¸æˆã€‚ã€‚
-æƒ³é£žå— èƒ½å¿ä½å†…å¿ƒçš„æ¿€åŠ¨å— å¿« å¿« åŠ å…¥æˆ‘ä»¬QQç¾¤ï¼š31324057
+#ÌìÃ¨×Ô¶¨Òå¼¼ÄÜ·þÎñ¶Ë£¨ÏîÄ¿Ãû£ºskill_server_for_esp32£©
+    
+   ##Ç°ÌáÌõ¼þ£º
+    1. esp32ÒÑË¢micrioython¹Ì¼þµÄ¿ª·¢°åÒ»¿é
+    2. ÌìÃ¨¾«ÁéÒ»¸ö
+    3. ÄÜÉÏÍøµÄÎÞÏßÂ·ÓÉÒ»Ì¨£¨ÄÜ¶Ë¿ÚÓ³Éä£¬ÈÃÍâÍø·ÃÎÊÄÚÍøµÄ80¶Ë¿Ú£©
+    
+   ## ²½ÖèÒ»£º
+    1. ÉÏ´«³ÌÐòµ½esp32¿ª·¢°å
+        boot.py  ÓÃÓÚÁ¬½Ówifi
+        main.py  ÌìÃ¨×Ô¶¨Òå¼¼ÄÜ·þÎñ¶Ë
+        microWebSrv.py  web·þÎñ¿âÎÄ¼þ
+    2. esp32¿ª·¢°åÁ¬½Óµ½wifi
+        ÓÃ´®¿ÚÖÕ¶ËÁ¬½Óµ½esp32¿ª·¢°åºó»áÌáÊ¾ÊäÈëÒªÁ¬½ÓµÄwifiºÍÃÜÂëÐÅÏ¢£¨µÚÒ»´ÎÔËÐÐµÄÊ±ºòÐèÒª£©
+        Á¬½Ówifi³É¹¦ºó£¬»á¿´µ½esp32¿ª·¢°å»ñÈ¡µ½µÄipµØÖ·£¨ÄÃ¸öÐ¡±¾±¾¼ÇÏÂÀ´£©
+    
+    3. ²é¿´ÍâÍøip    
+        ¾ÖÓòÍøÄÚÈÎºÎä¯ÀÀÆ÷ÖÕ¶Ë·ÃÎÊhttps://ip.51240.com/ÓòÃû£¬Ò³Ãæ¿ÉÒÔ¿´µ½×Ô¼Ò¿í´øÍâÍøip£¨ÄÃ¸öÐ¡±¾±¾¼ÇÏÂÀ´£©
+    
+    4. ÅäÖÃ¶Ë¿ÚÓ³Éä£¨ÄÚÍø´©Í¸£©
+        ÌáÊ¾£ºÈç¹ûÓÐÆäËüÄÚÍø´©Í¸µÄÊÖ¶Î´Ë²½×ÔÓÉ·¢»Ó£¨Èç»¨Éú¿ÇÖ®ÀàµÄ£©
+        µÇÂ½µ½ÎÞÏßÂ·ÓÉÆ÷£¬½¨Á¢¶Ë¿ÚÓ³Éä£¬ÓÐµÄÂ·ÓÉÆ÷½ÐÐéÄâ·þÎñÆ÷£¬¹ý³ÌÂÔ
+        £¨¼ûimgÄ¿Â¼ÏÂµÄ"ÐéÄâ·þÎñÆ÷.png"£©
+    
+    5¡¢ÑéÖ¤
+        ä¯ÀÀÆ÷·Ãurl: http://ÍâÍøip£º¶Ë¿Ú
+        ÄÜÏÔÊ¾skill_server_for_esp32ºóËµÃ÷ÉÏÃæËùÓÐ²½Öèok¡£
+        £¨¼ûimgÄ¿Â¼ÏÂµÄ"ÑéÖ¤ÍøÒ³.png"£©
+        
+   ## ²½Öè¶þ£º                                  
+    1. ×¢²áÌìÃ¨¾«ÁéÕË»§£¬µÇÂ½µ½¿ª·ÅÆ½Ì¨
+        1. µÇÂ½£ºhttps://www.aligenie.com/
+        2. ·ÃÎÊÖÇÄÜÓ¦ÓÃÆ½Ì¨£ºhttps://iap.aligenie.com/home
+        3. ´´½¨¼¼ÄÜ£ºhttps://iap.aligenie.com/console/hybird/list
+            * ¼¼ÄÜÃû³Æ£ºÐ¡ÖúÊÖ
+            * ¼¼ÄÜµ÷ÓÃ´Ê£ºÐ¡ÖúÊÖ
+            * ÆäËü£ºËæ±ãÌîÐ´£¬µã»÷ÏÂÒ»²½£¬½øÈë¼¼ÄÜÏêÇéÒ³
+    
+            Ñ¡Ôñ¡¶ÓïÒô½»»¥Ä£ÐÍ´´½¨¡·²Ëµ¥
+                ÒâÍ¼£º
+                    ÒâÍ¼Ãû³Æ£ºÐ¡ÖúÊÖ
+                    ÒâÍ¼±êÊ¶£ºÐ¡ÖúÊÖ
+                    ÉèÎªÄ¬ÈÏÒâÍ¼£ºÊÇ
+                    £¨¼ûimgÄ¿Â¼ÏÂµÄ"±à¼­ÒâÍ¼1.png"£©
+                    
+                ±à¼­ÒâÍ¼ÏêÇé
+                    Ìí¼Óµ¥ÂÖ¶Ô»°±í´ï
+                        1¡¢¹Ø±ÕµÆ
+                        2¡¢´ò¿ªµÆ    
+                    ²ÎÊý£º
+                        1¡¢Ñ¡ÖÐÉÏÒ»²½µÄ²½Öè1Êó±êÑ¡ÖÐ¡®¹Ø±Õ¡¯°ó¶¨ÊµÌå£¬×Ô¶¨ÒåÊµÌå
+                        2¡¢Ñ¡ÖÐÉÏÒ»²½µÄ²½Öè2Êó±êÑ¡ÖÐ¡®´ò¿ª¡¯°ó¶¨ÊµÌå£¬×Ô¶¨ÒåÊµÌå
+                        3¡¢Ìá½»
+                        £¨¼ûimgÄ¿Â¼ÏÂµÄ"±à¼­ÒâÍ¼2Ìí¼ÓÓïÁÏ.png"£©
+                        
+                »Ø¸´Âß¼­£º
+                    µã¿ª Ä¬ÈÏÂß¼­WEBHOOK£¬µã»÷ÏêÇé
+                    ÏÂÔØÈÏÖ¤ÎÄ¼þ£¬´Ë²½·Ç³£ÖØÒª
+                    °ÑÏÂÔØµÄÈÏÖ¤ÎÄ¼þµÄÎÄ¼þÃûºÍÎÄ¼þÄÚÈÝ¼ÇÂ¼ÏÂÀ´£¨Ð¡±¾±¾¼ÇºÃ£¬²½ÖèÈýÒªÓÃµ½£©¡£
+                    ÍøÒ³²»ÄÜ¹Ø¡£¡£²»ÄÜ¹Ø¡£¡£¡£²»ÄÜ¹Ø
+                    
+                        
+   ##²½ÖèÈý£º
+    1. ÐÞ¸Ä·þÎñ¶Ë´úÂë
+        ±à¼­run.py
+            zhengshu={}
+            zhengshu['url']='75c463e1d56ca9ca250c232bb83c5ffd.txt'  #ÐÞ¸ÄÎªÈÏÖ¤ÎÄ¼þµÄÎÄ¼þÃû
+            zhengshu['key']='Jfc4Z4Ur15JwUBuvUQD5wg7Nu8+l+HscqYlfofbyJdZpUywKEiamk2BzVIb1KIjo' #ÐÞ¸ÄÎªÈÏÖ¤ÎÄ¼þÄÚµÄÄÚÈÝ
+        
+    2. »Øµ½²½Öè¶þ                                        
+        ÌîÐ´URL£ºhttp://ÓòÃû/skill/
+        Ìá½»³É¹¦ºó¼´¿É                
+        £¨¼ûimgÄ¿Â¼ÏÂµÄ"»Ø¸´Âß¼­.png"£©
+        £¨¼ûimgÄ¿Â¼ÏÂµÄ"±à¼­url.png"£©
+        
+   ##²½ÖèËÄ£º
+        ²âÊÔ¼¼ÄÜ
+            ÔÚÌìÃ¨¼¼ÄÜµÄ²âÊÔ²Ëµ¥ÏÂÊäÈë¼¼ÄÜÖ¸Áî£¨¼ûimgÄ¿Â¼ÏÂµÄ"²âÊÔ.png"£©
